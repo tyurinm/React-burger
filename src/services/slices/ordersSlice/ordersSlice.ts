@@ -7,9 +7,7 @@ export const getUserOrders = createAsyncThunk('orders/getOrders', getOrdersApi);
 
 export const getOrderByNumber = createAsyncThunk(
   'orders/getByNumber',
-  async (number: number) => {
-    return await getOrderByNumberApi(number);
-  }
+  async (number: number) => await getOrderByNumberApi(number)
 );
 
 type OrdersState = {
@@ -47,8 +45,5 @@ export const ordersSlice = createSlice({
   }
 });
 
-export const {
-  selectOrders,
-  selectOrdersStatus,
-  selectOrderByNumber
-} = ordersSlice.getSelectors((state: RootState) => state.orders);
+export const { selectOrders, selectOrdersStatus, selectOrderByNumber } =
+  ordersSlice.getSelectors((state: RootState) => state.orders);

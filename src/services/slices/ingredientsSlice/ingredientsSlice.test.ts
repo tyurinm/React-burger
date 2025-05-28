@@ -79,7 +79,10 @@ describe('ingredientsSlice reducer', () => {
       expect(newState.loading).toBe(false);
       expect(newState.error).toBe('Failed to fetch');
       expect(newState.ingredients).toHaveLength(0);
-      expect(spy).toHaveBeenCalledWith('getIngredients rejected:', 'Failed to fetch');
+      expect(spy).toHaveBeenCalledWith(
+        'getIngredients rejected:',
+        'Failed to fetch'
+      );
 
       spy.mockRestore();
     });
